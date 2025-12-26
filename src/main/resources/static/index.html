@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookshelf Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Bookshelf Manager</h1>
+            <p>Manage your book collection</p>
+        </header>
+
+        <main>
+            <!-- Add/Edit Book Form -->
+            <section class="form-section">
+                <h2 id="form-title">Add New Book</h2>
+                <form id="book-form">
+                    <input type="hidden" id="book-id">
+                    
+                    <div class="form-group">
+                        <label for="title">Title *</label>
+                        <input type="text" id="title" required placeholder="Enter book title">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description *</label>
+                        <textarea id="description" required placeholder="Enter book description" rows="4"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price">Price *</label>
+                        <input type="number" id="price" step="0.01" min="0" required placeholder="0.00">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image">Book Cover Image</label>
+                        <input type="file" id="image" accept="image/*">
+                        <small>Optional: Upload a cover image for the book</small>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <span id="submit-text">Add Book</span>
+                        </button>
+                        <button type="button" class="btn btn-secondary" id="cancel-btn" style="display: none;">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Books List -->
+            <section class="books-section">
+                <h2>Book Collection</h2>
+                <div id="loading" class="loading">Loading books...</div>
+                <div id="error-message" class="error-message" style="display: none;"></div>
+                <div id="books-grid" class="books-grid"></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal for viewing book details -->
+    <div id="book-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
