@@ -15,4 +15,5 @@ public class BookDTO {
     private String description;
     private BigDecimal price;
     private String imagePath;
+    private String imageUrl;
 }

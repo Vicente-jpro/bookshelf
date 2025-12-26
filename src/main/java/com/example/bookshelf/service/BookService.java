@@ -154,6 +154,12 @@ public class BookService {
         dto.setDescription(book.getDescription());
         dto.setPrice(book.getPrice());
         dto.setImagePath(book.getImagePath());
+        
+        // Convert imagePath to full imageUrl
+        if (book.getImagePath() != null && !book.getImagePath().isEmpty()) {
+            dto.setImageUrl("/api/books/images/" + book.getImagePath());
+        }
+        
         return dto;
     }
 }
